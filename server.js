@@ -9,7 +9,7 @@ const playlistRoutes = require("./routes/playlist");
 const app = express();
 
 const corsOptions = {
-    origin: process.env.NODE_ENV === 'production' ? 'https://youtubescholar.classikh.me' : 'http://localhost:3000',
+    origin: process.env.NODE_ENV === 'production' ? 'https://youtube-scholar-frontend.vercel.app' : 'http://localhost:3000',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204
