@@ -90,7 +90,7 @@ router.post("/login", async (req, res) => {
       secure: process.env.NODE_ENV === "production", // Use secure cookies in production
       sameSite: "None", // Protect against CSRF
       maxAge: 15 * 60 * 1000, // 15 minutes
-      domain: process.env.NODE_ENV === "production" ? ".vercel.app" : ""
+      domain: process.env.NODE_ENV === "production" ? ".classikh.me" : ""
     });
 
     res.cookie("refresh_token", refreshToken, {
@@ -98,7 +98,7 @@ router.post("/login", async (req, res) => {
       secure: process.env.NODE_ENV === "production",
       sameSite: "None",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-      domain: process.env.NODE_ENV === "production" ? ".vercel.app" : "",
+      domain: process.env.NODE_ENV === "production" ? ".classikh.me" : "",
     });
 
     res.json({ message: "Login successful" });
@@ -124,8 +124,9 @@ router.post("/token", (req, res) => {
     res.cookie("auth_token", accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "Strict",
+      sameSite: "None",
       maxAge: 15 * 60 * 1000, // 15 minutes
+      domain: process.env.NODE_ENV === "production" ? ".classikh.me" : "",
     });
 
     res.json({ message: "Token refreshed" });
