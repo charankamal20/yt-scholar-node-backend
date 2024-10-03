@@ -88,7 +88,7 @@ router.post("/login", async (req, res) => {
     res.cookie("auth_token", accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production", // Use secure cookies in production
-      sameSite: "Strict", // Protect against CSRF
+      sameSite: "None", // Protect against CSRF
       maxAge: 15 * 60 * 1000, // 15 minutes
       domain: process.env.NODE_ENV === "production" ? ".vercel.app" : ""
     });
@@ -96,7 +96,7 @@ router.post("/login", async (req, res) => {
     res.cookie("refresh_token", refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "Strict",
+      sameSite: "None",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
       domain: process.env.NODE_ENV === "production" ? ".vercel.app" : "",
     });
