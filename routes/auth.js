@@ -33,6 +33,7 @@ const generateRefreshToken = (user) => {
 // Register Route
 router.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
+  console.log("EMAIL: ", email)
 
   try {
     const existingUser = await User.findOne({ email });
